@@ -12,6 +12,7 @@
 
 !/templates/*
 
+!*.pdf
 !*.go
 !go.sum
 !go.mod
