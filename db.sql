@@ -5,13 +5,12 @@ CREATE TABLE counties(
     county_name  VARCHAR(64) UNIQUE NOT NULL,
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (county_id)
-)
-
+);
 CREATE TABLE patients(
     patient_id BIGINT GENERATED ALWAYS AS IDENTITY,
     county_id INT NOT NULL,
     first_name  VARCHAR(64) NOT NULL,
-    surname_name  VARCHAR(64),
+    surname  VARCHAR(64),
     other_name  VARCHAR(64),
     -- patient_number is to be generated accroding to organization numbering --
     patient_number  VARCHAR(64) UNIQUE NOT NULL,
@@ -22,19 +21,17 @@ CREATE TABLE patients(
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (patient_id),
     CONSTRAINT fk_county FOREIGN KEY(county_id) REFERENCES counties(county_id)
-)
-
+);
 -- ct_persons is  Contact persons table for storing alternative contact person for patient --
 CREATE TABLE contact_persons(
     contact_person_id INT GENERATED ALWAYS AS IDENTITY,
-    patient_id BIGINT NOT NULL,
+    patient_id BIGINT UNIQUE NOT NULL,
     person_name  VARCHAR(64) NOT NULL,
     tel_number  VARCHAR(12)  UNIQUE NOT NULL,
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (contact_person_id),
     CONSTRAINT fk_patient FOREIGN KEY(patient_id) REFERENCES patients(patient_id)
-)
-
+);
 CREATE TABLE appointments(
     appointment_id BIGINT GENERATED ALWAYS AS IDENTITY,
     patient_id BIGINT NOT NULL,
@@ -43,20 +40,4 @@ CREATE TABLE appointments(
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient FOREIGN KEY(patient_id) REFERENCES patients(patient_id)
-)
-
-
-
-
-
-
-
-CREATE TABLE users (
-    user_id uuid  NOT NULL,
-    email VARCHAR(64) UNIQUE NOT NULL,
-    email_verified  BOOLEAN DEFAULT false,
-    password_hash VARCHAR,
-    created_at_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    updated_at TIMESTAMPTZ,
-    PRIMARY KEY (user_id)
-)
+);
