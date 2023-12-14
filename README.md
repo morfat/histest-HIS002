@@ -19,11 +19,12 @@ SERVER_ADDRESS='localhost:8000'
 
 2. Install necessary libraries as below
    
-   
+   ``` 
    go get -u github.com/gin-gonic/gin
    go get -u github.com/jackc/pgx/v5
    go get -u github.com/jackc/pgx/v5/pgxpool
    go get -u github.com/joho/godotenv
+   ```
 
 
 
