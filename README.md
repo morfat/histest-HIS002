@@ -6,8 +6,11 @@
 
 ### Installlation
 
+Install Golang as per the link https://go.dev/dl/
 
-1. Create a .env file in the root folder and add the below encrinment variables replacing the data respectively
+
+1. Create a .env file in the root folder and add the below environment variables replacing the data respectively
+
 i.e <db-user> with your postgresl user, <db-password> , and <db-name>
 
 ```
