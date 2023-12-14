@@ -11,7 +11,7 @@ Install Golang as per the link https://go.dev/dl/
 
 1. Create a .env file in the root folder and add the below environment variables replacing the data respectively
 
-i.e <db-user> with your postgresl user, <db-password> , and <db-name>
+i.e db-user with your postgresl user, db-password , and db-name
 
 ```
 DEBUG=True
@@ -28,8 +28,6 @@ SERVER_ADDRESS='localhost:8000'
    go get -u github.com/jackc/pgx/v5/pgxpool
    go get -u github.com/joho/godotenv
    ```
-
-
 
 3. To run the code , do:
    `go run .`
