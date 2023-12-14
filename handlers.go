@@ -50,3 +50,19 @@ func postPatientHandler(ctx *gin.Context) {
 	log.Println(objIn)
 
 }
+
+type PatientAppointmentIn struct {
+}
+
+func postPatientAppointmentsHandler(ctx *gin.Context) {
+
+	var objIn PatientAppointmentIn
+
+	if err := ctx.ShouldBindJSON(&objIn); err != nil {
+		ctx.JSON(http.StatusOK, err)
+		return
+	}
+
+	log.Println(objIn)
+
+}

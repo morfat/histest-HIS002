@@ -23,6 +23,7 @@ func init() {
 func v1_routes(r *gin.RouterGroup) {
 	r.POST("/counties", postCountyHandler)
 	r.POST("/patients", postPatientHandler)
+	r.POST("/patients/:patient_id/appointments", postPatientAppointmentsHandler)
 }
 
 func main() {
